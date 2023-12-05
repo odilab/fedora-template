@@ -66,5 +66,15 @@
             "description": "Runs Homebrew installation and add it to the path",
             "default": true
         }
-    }
+    },
+    "privileged": true,
+    "capAdd": [
+        "SYS_PTRACE"
+    ],
+    "securityOpt": [
+        "seccomp=unconfined"
+    ],
+    "installsAfter": [
+        "./local-features/coffedora"
+    ]
 }

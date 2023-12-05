@@ -1,5 +1,5 @@
 {
-	"name": "Coffedora Go-Workspace",
+	"name": "Coffedora Ansible-Workspace",
 	"image": "quay.io/fedora/${templateOption:imageVariant}-minimal:latest",
 	// 👇 Local Features will be distributed via template and Dev Container compatibility on top of a minimal image
 	// Name is required. Set "Username":"root" to skip user Creation.
@@ -14,6 +14,13 @@
 			"dnfInstall": "${templateOption:dnfInstall}"
 		},
 		"./features/preset-editor": {}
+	},
+	"remoteEnv": {
+		"GITHUB_USER":"${templateOption:user}",
+		"GH_TOKEN":"${containerEnv:GH_TOKEN}${localEnv:GH_TOKEN}",
+		"HCLOUD_TOKEN":"${containerEnv:HCLOUD_TOKEN}${localEnv:HCLOUD_TOKEN}",
+		"VAULT_PASS":"${containerEnv:VAULT_PASS}${localEnv:VAULT_PASS}",
+		"HCLOUD_RSA_ID":"${containerEnv:HCLOUD_RSA_ID}${localEnv:HCLOUD_RSA_ID}"
 	},
 	// Will use the local environment variables to pass to the container. Unset variables will be empty
 	// 👇 Use 'forwardPorts' to make a list of ports inside the container available locally.
