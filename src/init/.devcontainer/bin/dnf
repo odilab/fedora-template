@@ -1,0 +1,12 @@
+#!/bin/sh
+
+dnf=$(ls /bin/dnf* | head -n 1)
+
+if [ "$(command -v $dnf)" ]; then
+    exec $dnf "$@"
+elif [ -n "$dnf" ]; then
+    exec "$dnf" "$@"
+else
+    echo "dnf is not in $PATH" >&2
+    exit 127
+fi

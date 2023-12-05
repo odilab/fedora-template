@@ -1,0 +1,70 @@
+{
+    "id": "init",
+    "version": "0.1.0",
+    "name": "Fedora Codespace",
+    "description": "Fedora Devcontainer designed for Cloud",
+    "documentationURL": "https://github.com/d1sev/template/tree/main/src/init",
+    "licenseURL": "https://github.com/d1sev/template/blob/main/LICENSE",
+    "options": {
+        "imageVariant": {
+            "type": "string",
+            "description": "Fedora version:",
+            "proposals": [
+                "39",
+                "40",
+                "rawhide"
+            ],
+            "default": "39"
+        },
+        "user": {
+            "type": "string",
+            "description": "Name of the home directory owner",
+            "proposals": [
+                "vscode",
+                "codespace",
+                "devcontainer",
+                "coffe"
+            ],
+            "default": "vscode"
+        },
+        "uid": {
+            "type": "string",
+            "description": "User UID. Default to 1000",
+            "proposals": [
+                "1000",
+                "1001"
+            ],
+            "default": "1000"
+        },
+        "gid": {
+            "type": "string",
+            "description": "User GID. Default to UID Value. Will be overriden by wheel group",
+            "proposals": [
+                "1000",
+                "1001"
+            ],
+            "default": "1000"
+        },
+        "shell": {
+            "type": "string",
+            "description": "Set Users loginshell",
+            "enum": [
+                "bash",
+                "zsh"
+            ],
+            "default": "zsh"
+        },
+        "brew": {
+            "type": "string",
+            "description": "Preinstall Homebrew",
+            "enum": [
+                "true",
+                "false"
+            ],
+            "default": "true"
+        }
+    },
+    "platforms": [
+        "Fedora"
+    ]
+}

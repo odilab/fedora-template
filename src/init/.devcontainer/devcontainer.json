@@ -1,0 +1,24 @@
+{
+	"remoteUser": "${templateOption:user}",
+	"containerUser": "${templateOption:user}",
+	"name": "Init Fedora Codespace",
+	"build": {
+		"dockerfile": "Dockerfile",
+		"args": {
+			"USERNAME":"${templateOption:user}",
+			"USERSHELL": "${templateOption:shell}",
+			"USER_UID":"${templateOption:uid}",
+			"USER_GID":"${templateOption:gid}",
+			"INSTALL_HOMEBREW":"${templateOption:brew}"
+		}
+	}
+	// 👇 Features to add to the Dev Container. More info: https://containers.dev/implementors/features.
+	// "features": {},
+	// 👇 Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [],
+	// 👇 Use 'postCreateCommand' to run commands after the container is created.
+	// 👇 Configure tool-specific properties.
+	// "customizations": {},
+	// 👇 Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+	// "remoteUser": "root"
+}

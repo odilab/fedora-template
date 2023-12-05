@@ -1,0 +1,78 @@
+{
+    "id": "coffedora",
+    "version": "0.1.0",
+    "name": "Setup Fedora-minimal as devcontainer",
+
+    "options": {
+        "installHomebrew": {
+            "type": "boolean",
+            "default": true,
+            "description": "Install Homebrew?"
+        },
+        "upgradePackages": {
+            "type": "boolean",
+            "default": true,
+            "description": "Upgrade OS packages?"
+        },
+        "username": {
+            "type": "string",
+            "proposals": [
+                "devcontainer",
+                "vscode",
+                "codespace",
+                "none",
+                "automatic"
+            ],
+            "default": "automatic",
+            "description": "Enter name of a non-root user to configure or none to skip"
+        },
+        "userUid": {
+            "type": "string",
+            "proposals": [
+                "1001",
+                "automatic"
+            ],
+            "default": "automatic",
+            "description": "Enter UID for non-root user"
+        },
+        "userGid": {
+            "type": "string",
+            "proposals": [
+                "1001",
+                "automatic"
+            ],
+            "default": "automatic",
+            "description": "Enter GID for non-root user"
+        },
+        "nonFreePackages": {
+            "type": "boolean",
+            "default": false,
+            "description": "Add packages from non-free Debian repository? (Debian only)"
+        }
+    },
+    "containerEnv": {
+        "DOCKER_HOST": "$(docker context inspect --format '{{.Endpoints.docker.Host}}'))",
+        "DOCKER_BUILDKIT": "1"
+    },
+    "privileged": true,
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-azuretools.vscode-docker"
+            ]
+        }
+    },
+    "init": true,
+    "mounts": [
+        {
+            "source": "dind-var-lib-docker-${devcontainerId}",
+            "target": "/var/lib/docker",
+            "type": "volume"
+        },
+        {
+            "source": "home-cache",
+            "target": "/home/linuxbrew",
+            "type": "volume"
+        }
+    ]
+}

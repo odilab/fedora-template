@@ -1,0 +1,61 @@
+{
+    "id": "preset-editor",
+    "version": "0.1.0",
+    "name": "Setup VSCode Editor recommendations",
+		"remoteEnv": {
+			"DOCKER_HOST": "$(docker context inspect --format \"{{.Endpoints.docker.Host}}\"))",
+			"GITHUB_USERNAME": "${localEnv:GITHUB_USERNAME}",
+			"GH_TOKEN": "${localEnv:GH_TOKEN}"
+		},
+		"remoteUser": "${localEnv:GITHUB_USERNAME}",
+		"runArgs": [
+			"--hostname",
+			"devcontainer"
+			// 👇 Uncomment to use an env file instead of passing the variables directly.
+			// "--env-file",
+			// "${localWorkspaceFolder}/.devcontainer/.env"
+		],
+    "customizations": {
+		// Configure properties specific to VS Code.
+		"vscode": {
+			"extensions": [
+				"GitHub.copilot",
+				"GitHub.copilot-chat",
+				"yzhang.markdown-all-in-one",
+				"bierner.markdown-preview-github-styles",
+				"formulahendry.github-actions",
+				"ms-azuretools.vscode-docker"
+			],
+			// Applies only to vscode.  Downloads the repo into targetPath and runs  setup.sh to finalize the integration.  
+			"settings": {
+				// "dotfiles.repository": "${localEnv:GITHUB_USERNAME}/dotfiles",
+				// "dotfiles.targetPath": "~/.local/share/chezmoi",
+				// "dotfiles.installCommand": "setup.sh",
+				// Recommended settings to apply when working in container. Change theme and font to your preference.
+					"files.autoSave": "afterDelay",
+					"workbench.colorTheme": "Catppuccin Mocha",
+					"editor.fontFamily": "'JetbrainsMono Nerd Font', 'FiraCode Nerd Font', 'Hack Nerd Font', 'monospace'",
+					"editor.smoothScrolling": true,
+					"terminal.integrated.fontFamily": "'JetbrainsMono Nerd Font', 'FiraCode Nerd Font', 'Hack Nerd Font', 'monospace'",
+					"terminal.integrated.lineHeight": 1.5,
+					"editor.fontLigatures": true,
+					"editor.lineHeight": 1.5,
+					"editor.minimap.enabled": false,
+					"editor.tabSize": 2,
+					"workbench.iconTheme": "material-icon-theme",
+					"editor.semanticTokenColorCustomizations": {
+						"enabled": true
+					},
+					"editor.semanticHighlighting.enabled": true,
+					"files.eol": "\n",
+					"extensions.ignoreRecommendations": true,
+					"task.problemMatchers.neverPrompt": {
+						"shell": true
+					}
+			}
+		}
+	},
+	"installsAfter": [
+		"./local-features/coffedora"
+	]
+}
