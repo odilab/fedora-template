@@ -18,4 +18,4 @@ Fedora Devcontainer designed for Cloud
 
 ---
 
-_Note: This file was auto-generated from the [devcontainer-template.json](https://github.com/coffedora/template/blob/main/src/init/devcontainer-template.json).  Add additional notes to a `NOTES.md`._
+_Note: This file was auto-generated from the [devcontainer-template.json](https://github.com/odilab/fedora-template/blob/main/src/init/devcontainer-template.json).  Add additional notes to a `NOTES.md`._
