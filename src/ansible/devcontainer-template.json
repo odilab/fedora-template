@@ -1,0 +1,81 @@
+{
+    "id": "home",
+    "version": "0.1.0",
+    "name": "Fedora Codespace",
+    "description": "Fedora Devcontainer designed for Cloud",
+    "documentationURL": "https://github.com/d1sev/template/tree/main/src/init",
+    "licenseURL": "https://github.com/d1sev/template/blob/main/LICENSE",
+    "options": {
+        "imageVariant": {
+            "type": "string",
+            "description": "Fedora version:",
+            "enum": [
+                "fedora",
+                "python-311",
+                "nodejs-20"
+            ],
+            "default": "fedora"
+
+        },
+        "user": {
+            "type": "string",
+            "description": "Name of the home directory owner",
+            "proposals": [
+                "codespace",
+                "devcontainer",
+                "vscode"
+            ],
+            "default": "vscode"
+        },
+        "uid": {
+            "type": "string",
+            "description": "User UID. Default to 1000",
+            "proposals": [
+                "1000",
+                "1001"
+            ],
+            "default": "1000"
+        },
+        "gid": {
+            "type": "string",
+            "description": "User GID. Default to UID Value. Will be overriden by wheel group",
+            "proposals": [
+                "1000",
+                "1001"
+            ],
+            "default": "1000"
+        },
+        "shell": {
+            "type": "string",
+            "description": "Set Users loginshell.",
+            "enum": [
+                "bash",
+                "zsh",
+                "fish"
+            ],
+            "default": "zsh"
+        },
+        "wsl": {
+            "type": "boolean",
+            "description": "Prepare enviroment to be imported as WSL Distro",
+            "default": true
+        },
+        "brew": {
+            "type": "boolean",
+            "description": "Prepare enviroment to be imported as WSL Distro",
+            "default": true
+        },
+        "dnfInstall": {
+            "type": "string",
+            "description": "Add extra dnf Packages.",
+            "proposals": [
+                "gh",
+                "nvim"
+            ],
+            "default": "gh ansible"
+        }
+    },
+    "platforms": [
+        "Fedora"
+    ]
+}

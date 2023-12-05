@@ -1,0 +1,70 @@
+{
+    "id": "fedora-minimal",
+    "version": "0.1.0",
+    "name": "Sets up a Fedora-minimal to meet requirements for devcontainer",
+    "options": {
+        "username": {
+            "type": "string",
+            "proposals": [
+                "devcontainer",
+                "vscode",
+                "codespace",
+                "none"
+            ],
+            "default": "automatic",
+            "description": "Create User. If in automatic mode, determine if a user already exists, if not use vscode"
+        },
+        "userShell": {
+            "type": "string",
+            "default": "Install additional shell and set as Users default shell?",
+            "enum": [
+                "bash",
+                "zsh",
+                "fish"
+            ],
+            "description": "zsh"
+        },
+        "useruid": {
+            "type": "string",
+            "proposals": [
+                "1001",
+                "automatic"
+            ],
+            "default": "automatic",
+            "description": "Enter UID for non-root user"
+        },
+        "usergid": {
+            "type": "string",
+            "proposals": [
+                "1001",
+                "automatic"
+            ],
+            "default": "automatic",
+            "description": "Enter GID for non-root user"
+        },
+        "dnfInstall": {
+            "type": "string",
+            "proposals": [
+                "gh",
+                "none"
+            ],
+            "default": "none",
+            "description": "Install additional packages with DNF"
+        },
+        "upgradePackages": {
+            "type": "boolean",
+            "default": true,
+            "description": "Upgrade DNF packages"
+        },
+        "wslReady": {
+            "type": "boolean",
+            "default": true,
+            "description": "Create /etc/wsl.conf to enable interop with Windows when imported into WSL2"
+        },
+        "brewReady": {
+            "type": "boolean",
+            "description": "Runs Homebrew installation and add it to the path",
+            "default": true
+        }
+    }
+}

@@ -1,0 +1,26 @@
+{
+	"name": "Coffedora Go-Workspace",
+	"image": "quay.io/fedora/${templateOption:imageVariant}-minimal:latest",
+	// 👇 Local Features will be distributed via template and Dev Container compatibility on top of a minimal image
+	// Name is required. Set "Username":"root" to skip user Creation.
+	// Unset values, empty strings or  string of value "false" will skip the part of the feature requireded the value. 
+	// More info: https://containers.dev/implementors/features.
+	"features": {
+		"./features/fedora-minimal": {
+			"userName":"${templateOption:user}",
+			"userShell": "${templateOption:shell}",
+			"wslReady": "${templateOption:wsl}",
+			"brewReady": "${templateOption:brew}",
+			"dnfInstall": "${templateOption:dnfInstall}"
+		},
+		"./features/preset-editor": {}
+	},
+	// Will use the local environment variables to pass to the container. Unset variables will be empty
+	// 👇 Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [],
+	// 👇 Use 'postCreateCommand' to run commands after the container is created.
+	// 👇 Configure tool-specific properties.
+	//  "comment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+	// "remoteUser": "root"
+	 "remoteUser": "${templateOption:user}"
+}
