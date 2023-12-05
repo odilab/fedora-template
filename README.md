@@ -15,6 +15,7 @@ npm install -g @devcontainers/cli
 ## How to get the Template in my project
 Apply the template in a directory and edit the ARG in Dockerfile. YOu have also to adjust the name in the devcontainer.json
 ```powershell
-devcontainer templates apply -t 'ghcr.io/coffedora/template/init:latest' 
+devcontainer templates apply -t 'ghcr.io/odilab/fedora-template/ansible:latest' 
+devcontainer templates apply -t 'ghcr.io/odilab/fedora-template/home:latest' 
 ```
 
