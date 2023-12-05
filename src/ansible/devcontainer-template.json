@@ -1,5 +1,5 @@
 {
-    "id": "home",
+    "id": "ansible",
     "version": "0.1.0",
     "name": "Fedora Codespace",
     "description": "Fedora Devcontainer designed for Cloud",

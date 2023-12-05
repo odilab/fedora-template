@@ -15,3 +15,4 @@ jobs:
           filters: |
             init: ./**/init/**
             home: ./**/home/**
+            ansible: ./**/ansible/**
