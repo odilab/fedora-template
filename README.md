@@ -6,8 +6,10 @@ On windows you have to use it from wsl or install npm first.
 Easiest way to get npm is the *node version manager* **nvm** 
 ```powershell
 scoop install nvm
+#alternative via choco
+choco install nvm
 nvm install lts
-nvm apply lts
+nvm use lts
 npm install -g @devcontainers/cli
 ```
 
